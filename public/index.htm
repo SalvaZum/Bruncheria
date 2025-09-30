@@ -11,8 +11,8 @@
             --oscuro: #264e98;
             --negro: #001131;
 
-            --oscuro2: #264e9844;
-            --negro2: #00113154;
+            --oscuro2: #264e9875;
+            --negro2: #0011317a;
         }
         *{
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -26,7 +26,7 @@
 
             background:  linear-gradient(270deg, var(--oscuro2), var(--negro2));
             background-size: 800% 800%;
-            animation: moverFondo 3s ease infinite;
+            animation: moverFondo 5s ease infinite;
         }
         body{
             display: flex;
@@ -93,6 +93,15 @@
         h5{
             font-size: 14px;
         }
+        .boton{
+            transition: transform 0.3s ease;
+        }
+        .animar {
+            background-color: var(--negro);
+            transform:translateY(-20px); /* ejemplo: se encoge */
+            opacity: 0.5;
+            transition: 0.2s;
+        }
         @keyframes moverFondo {
             0%   { background-position: 0% 50%; }
             50%  { background-position: 100% 50%; }
@@ -122,19 +131,19 @@
             <img src="imagenes/reloj.png" alt="">
             <h5>Abrimos todos los dias de 9am a 21pm</h5>
         </div>
-        <a href="https://maps.app.goo.gl/mxRDLT4Yuwae1czB8?g_st=ipc">
-        <div>
+        <a href="https://maps.app.goo.gl/mxRDLT4Yuwae1czB8?g_st=ipc" class="boton" >
+        <div class="boton">
             <img src="imagenes/menu.png" alt="">
             <h5>Encuentranos en: Achaval Rodriguez 244</h5>
         </div>
         </a>  
-        <a href="https://drive.google.com/file/d/1QhcKDc9ft-lJ4-XU7VvjBlyJb6A8pTbB/view?fbclid=PAZnRzaANJBmpleHRuA2FlbQIxMQABp58XDUt1L0IgrOcIa1VOBITdTXIe7nQR9j4AXMtLKz4Lo7LOZ-bModdgFoJT_aem_feT7OqeiOHRlI9shc59wDg">
+        <a href="https://drive.google.com/file/d/1QhcKDc9ft-lJ4-XU7VvjBlyJb6A8pTbB/view?fbclid=PAZnRzaANJBmpleHRuA2FlbQIxMQABp58XDUt1L0IgrOcIa1VOBITdTXIe7nQR9j4AXMtLKz4Lo7LOZ-bModdgFoJT_aem_feT7OqeiOHRlI9shc59wDg" class="boton" >
             <div>
                 <img src="imagenes/ubicacion.png" alt="">
                 <h5>¿No sabes que quieres comer? Chusmea nuestro menu.</h5>  
             </div>
         </a>
-        <a href="https://api.whatsapp.com/send?phone=+543512084204&text=Hola%20Bruncheria!%20Tengo%20una%20consulta" target="_blank">
+        <a href="https://api.whatsapp.com/send?phone=+543512084204&text=Hola%20Bruncheria!%20Tengo%20una%20consulta" target="_blank" class="boton" >
             <div>
                 <img src="imagenes/whatsapp.png" alt="">
                 <h5>Shall we? Charlemos ante cualquier duda</h5>
@@ -148,7 +157,17 @@
     </footer>
 
     <script>
+const boton = document.querySelectorAll('.boton');
 
+boton.addEventListener('click', function(e) {
+  e.preventDefault(); // evita que el link abra inmediatamente
+  boton.classList.add('animar'); // aplicamos la animación
+
+  // Esperamos a que termine la transición
+  boton.addEventListener('transitionend', function() {
+    window.location.href = boton.href; // redirige al link
+  }, { once: true }); // el listener se ejecuta solo una vez
+});
     </script>
 </body>
 </html>
