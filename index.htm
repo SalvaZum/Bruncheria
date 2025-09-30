@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruncheria - </title>
+    <style>
+        :root{
+            --blanco: #e2f3fd;
+            --medio: #758cb0;
+            --oscuro: #264e98;
+            --negro: #001131;
+
+            --oscuro2: #264e9844;
+            --negro2: #00113154;
+        }
+        *{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: var(--blanco);
+        }
+        .filtro{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+
+            background:  linear-gradient(270deg, var(--oscuro2), var(--negro2));
+            background-size: 800% 800%;
+            animation: moverFondo 3s ease infinite;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            background-image: url('IMG_5634.png'); 
+            background-size: cover;
+           
+            color: var(--negro);
+        }
+        .header{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+        }
+        #container div{
+            width: 80%;
+            height: 50px;
+            background-color:var(--medio);
+            border-radius: 20px;
+
+            display: flex;
+            justify-content: baseline;
+            align-items: center;
+            padding: 20px;
+            margin: 10px;
+        }
+        img{
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .logo{
+            border-radius: 50px;
+            width: 100px;
+            height: auto;
+            
+            border: 3px solid transparent;
+            background: linear-gradient(45deg, yellow, rgb(255, 0, 255), yellow, rgb(255, 0, 255)) border-box;
+            background-size: 400% 400%;
+            animation: moverDegrade 5s linear infinite;
+        }
+        a{
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h5{
+            font-size: 14px;
+        }
+        @keyframes moverFondo {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes moverDegrade {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="filtro"></div>
+
+    <!-- Encabezado  -->
+    <div class="header">
+        <img src="Logo (2).PNG" alt="" class="logo">
+        <h2 style="margin-bottom: -20px;">BRUNCHERIA</h2>
+        <h4>🥂 Brunch | Spritz | Café 🍰</h4>
+    </div>
+
+    <!-- Cuerpo -->
+    <div id="container">
+        <div>
+            <img src="reloj.png" alt="">
+            <h5>Abrimos todos los dias de 9am a 21pm</h5>
+        </div>
+        <a href="https://maps.app.goo.gl/mxRDLT4Yuwae1czB8?g_st=ipc">
+        <div>
+            <img src="menu.png" alt="">
+            <h5>Encuentranos en: Achaval Rodriguez 244</h5>
+        </div>
+        </a>  
+        <a href="https://drive.google.com/file/d/1QhcKDc9ft-lJ4-XU7VvjBlyJb6A8pTbB/view?fbclid=PAZnRzaANJBmpleHRuA2FlbQIxMQABp58XDUt1L0IgrOcIa1VOBITdTXIe7nQR9j4AXMtLKz4Lo7LOZ-bModdgFoJT_aem_feT7OqeiOHRlI9shc59wDg">
+            <div>
+                <img src="ubicacion.png" alt="">
+                <h5>¿No sabes que quieres comer? Chusmea nuestro menu.</h5>  
+            </div>
+        </a>
+        <a href="api.whatsapp.com/send?phone=+543512084204&text=Hola%2520Bruncheria%2521%2520Tengo%2520una%2520consulta">
+            <div>
+                <img src="whatsapp.png" alt="">
+                <h5>Shall we? Charlemos ante cualquier duda</h5>
+            </div>
+        </a>
+        
+    </div>
+
+    <footer style="margin-top: 50px;">
+        <p style="color: orangered; font-weight: 600; text-shadow: 1px 1px 1px black;">Copyright BRUNCHERIA - 2025.</p>
+    </footer>
+
+    <script>
+
+    </script>
+</body>
+</html>
