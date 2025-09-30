@@ -98,9 +98,12 @@
         }
         .animar {
             background-color: var(--negro);
-            transform:translateY(-20px); /* ejemplo: se encoge */
-            opacity: 0.5;
-            transition: 0.2s;
+            animation: clickAnim 0.4s forwards;
+        }
+         @keyframes clickAnim {
+            0%   { transform: scale(1); }
+            50%  { transform: scale(0.8) rotate(-5deg); }
+            100% { transform: scale(1) rotate(0deg); }
         }
         @keyframes moverFondo {
             0%   { background-position: 0% 50%; }
@@ -131,20 +134,20 @@
             <img src="imagenes/reloj.png" alt="">
             <h5>Abrimos todos los dias de 9am a 21pm</h5>
         </div>
-        <a href="https://maps.app.goo.gl/mxRDLT4Yuwae1czB8?g_st=ipc" class="boton" >
+        <a href="https://maps.app.goo.gl/mxRDLT4Yuwae1czB8?g_st=ipc" class="boton-link" >
         <div class="boton">
             <img src="imagenes/menu.png" alt="">
             <h5>Encuentranos en: Achaval Rodriguez 244</h5>
         </div>
         </a>  
-        <a href="https://drive.google.com/file/d/1QhcKDc9ft-lJ4-XU7VvjBlyJb6A8pTbB/view?fbclid=PAZnRzaANJBmpleHRuA2FlbQIxMQABp58XDUt1L0IgrOcIa1VOBITdTXIe7nQR9j4AXMtLKz4Lo7LOZ-bModdgFoJT_aem_feT7OqeiOHRlI9shc59wDg" class="boton" >
-            <div>
+        <a href="https://drive.google.com/file/d/1QhcKDc9ft-lJ4-XU7VvjBlyJb6A8pTbB/view?fbclid=PAZnRzaANJBmpleHRuA2FlbQIxMQABp58XDUt1L0IgrOcIa1VOBITdTXIe7nQR9j4AXMtLKz4Lo7LOZ-bModdgFoJT_aem_feT7OqeiOHRlI9shc59wDg" class="boton-link" >
+            <div class="boton">
                 <img src="imagenes/ubicacion.png" alt="">
                 <h5>¿No sabes que quieres comer? Chusmea nuestro menu.</h5>  
             </div>
         </a>
-        <a href="https://api.whatsapp.com/send?phone=+543512084204&text=Hola%20Bruncheria!%20Tengo%20una%20consulta" target="_blank" class="boton" >
-            <div>
+        <a href="https://api.whatsapp.com/send?phone=+543512084204&text=Hola%20Bruncheria!%20Tengo%20una%20consulta" target="_blank" class="boton-link" >
+            <div class="boton">
                 <img src="imagenes/whatsapp.png" alt="">
                 <h5>Shall we? Charlemos ante cualquier duda</h5>
             </div>
@@ -157,16 +160,20 @@
     </footer>
 
     <script>
-const boton = document.querySelectorAll('.boton');
+const enlaces = document.querySelectorAll('.boton-link');
 
-boton.addEventListener('click', function(e) {
-  e.preventDefault(); // evita que el link abra inmediatamente
-  boton.classList.add('animar'); // aplicamos la animación
+enlaces.forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault(); // evita ir al link inmediatamente
 
-  // Esperamos a que termine la transición
-  boton.addEventListener('transitionend', function() {
-    window.location.href = boton.href; // redirige al link
-  }, { once: true }); // el listener se ejecuta solo una vez
+        const divBoton = link.querySelector('.boton');
+        divBoton.classList.add('animar'); // aplica la animación
+
+        // espera a que termine la animación antes de redirigir
+        divBoton.addEventListener('animationend', function() {
+            window.location.href = link.href; // redirige al link
+        }, { once: true });
+    });
 });
     </script>
 </body>
